@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', path='media/logo.png') }}" type="image/x-icon">
     <script src="{{ url_for('static', path='/script.js') }}"></script>
 </head>
 <body>
@@ -11,16 +12,16 @@
 <div class="page">
     <h1>WebSocket Chat</h1>
   <div class="form">
-    <form action="" onsubmit="sendMessage(event)" class="login-form">
-      <input type="text" placeholder="Inter your value" id="messageText" autocomplete="off"/>
+    <form action="" onsubmit="return sendMessage(event)" class="login-form">
+      <input type="text" placeholder="Enter your message" id="messageText" autocomplete="off"/>
       <button>Send message</button>
     </form>
   </div>
-    <ul id='messages' class="first">
-        </ul>
+
 </div>
 
-
+ <ul id='messages' class="first">
+        </ul>
 
 
 </body>

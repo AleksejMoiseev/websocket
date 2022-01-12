@@ -1,5 +1,3 @@
-import json
-
 from fastapi import APIRouter, WebSocket, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -16,11 +14,11 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     counter = 0
     while True:
-        message = await websocket.receive_text()
+        request_data = await websocket.receive_json()
         counter += 1
         response_data = {
             'id': counter,
-            'message': message,
+            'message': request_data['message'],
         }
         await websocket.send_json(response_data)
 
